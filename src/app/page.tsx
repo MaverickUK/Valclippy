@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -11,6 +11,27 @@ export default function Home() {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
+
+  const [greeting, setGreeting] = useState("Hi there! What can I help you with?");
+
+  useEffect(() => {
+    const greetingMessages = [
+      "It looks like you're trying to write a letter?",
+      "I see you're back! Need help with anything today?",
+      "Hi there! What workplace mystery shall we solve?",
+      "It appears you need assistance! I'm here to help!",
+      "Looking for someone or something? I'm your guy!",
+      "Welcome back! Ready to dive into some company intel?",
+      "I detect you might need some information. How exciting!",
+      "It seems like you're searching for answers!",
+      "Hello! I've been waiting to help with your next question!",
+      "I notice you've opened the chat. What can I find for you?",
+      "It looks like you're about to ask something important!",
+      "Greetings! I'm practically bursting with helpful data!"
+    ];
+    
+    setGreeting(greetingMessages[Math.floor(Math.random() * greetingMessages.length)]);
+  }, []);
 
   const handleTopicClick = (topic: string) => {
     const question = `Tell me more about: ${topic}`;
@@ -50,6 +71,30 @@ export default function Home() {
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
       // Italic text: *text* -> <em>text</em>
       .replace(/\*(.*?)\*/g, '<em>$1</em>')
+      // Person cards: PERSON: initials|name|role|description|skills|projects
+      .replace(/PERSON: ([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|(.+)/, (match, initials, name, role, description, skills, projects) => {
+        const skillTags = skills.split(',')
+          .filter((skill: string) => skill.trim() !== '')
+          .map((skill: string) => 
+            `<span class="inline-block bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs mr-1">${skill.trim()}</span>`
+          ).join('');
+        const projectTags = projects.split(',')
+          .filter((project: string) => project.trim() !== '')
+          .map((project: string) => 
+            `<span class="inline-block bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs mr-1">${project.trim()}</span>`
+          ).join('');
+        return `<div class="flex items-start gap-4 mb-6 p-4 bg-gray-50 rounded-lg">
+          <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center text-gray-700 font-semibold text-sm flex-shrink-0">${initials}</div>
+          <div class="flex-1">
+            <h3 class="font-semibold text-lg text-gray-900">${name}</h3>
+            <p class="text-gray-600 text-sm mb-2">${role}</p>
+            <p class="text-gray-800 mb-3">${description}</p>
+            <div class="mb-2">${skillTags}</div>
+            <!-- <div class="text-xs text-gray-600 mb-1">Projects:</div>
+            <div>${projectTags}</div>
+          </div>
+        </div>`;
+      })
       // Topic boxes: TOPIC: text -> gray clickable boxes with onclick
       .replace(/TOPIC: (.+)/, (match, topic) => 
         `<div class="bg-gray-300 text-gray-800 px-4 py-3 rounded-lg mb-2 cursor-pointer hover:bg-gray-400 transition-colors" onclick="window.handleTopicClick('${topic}')">${topic}</div>`
@@ -91,7 +136,7 @@ export default function Home() {
       <div className="flex flex-col items-center w-full max-w-xl mt-12">
         <div className="flex flex-col items-center mb-8">
           <img src="/mascot.png" alt="Mascot" className="w-24 h-24 mb-4" />
-          <h1 className="text-3xl font-semibold mb-2 text-gray-800">quirky heading?</h1>
+          <h1 className="text-3xl font-semibold mb-2 text-gray-800 text-center">{greeting}</h1>
         </div>
         <div className="w-full flex flex-col gap-4 mb-8">
           {messages.map((msg, idx) => (
@@ -99,8 +144,8 @@ export default function Home() {
               key={idx}
               className={
                 msg.role === 'user'
-                  ? 'self-end bg-yellow-200 rounded-xl px-6 py-4 text-lg font-medium shadow max-w-[80%] text-gray-800'
-                  : 'self-start bg-white rounded-xl px-6 py-4 text-base shadow max-w-[80%] flex items-center gap-3 text-gray-800'
+                  ? 'self-end bg-white rounded-xl px-6 py-4 text-lg font-medium shadow max-w-[80%] text-gray-800'
+                  : 'self-start px-6 py-4 text-base max-w-[80%] flex items-start gap-3 text-gray-800'
               }
             >
               {msg.role === 'assistant' && (
@@ -114,7 +159,7 @@ export default function Home() {
             </div>
           ))}
           {loading && (
-            <div className="self-start bg-white rounded-xl px-6 py-4 text-base shadow max-w-[80%] flex items-center gap-3 opacity-60 text-gray-600">
+            <div className="self-start px-6 py-4 text-base max-w-[80%] flex items-start gap-3 opacity-60 text-gray-600">
               <img src="/mascot.png" alt="Mascot" className="w-8 h-8 mr-2" />
               <span>Thinking...</span>
             </div>

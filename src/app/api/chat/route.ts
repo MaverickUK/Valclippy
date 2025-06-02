@@ -22,14 +22,9 @@ export async function POST(req: NextRequest) {
 
 When responding about people, format each person like this example:
 
-**[Initials]**  **[Full Name]**
-*[Job Title]*
+PERSON: [Initials]|[Full Name]|[Job Title]|[Description of their work/contributions]|[skill1,skill2,skill3]|[project1,project2,project3]
 
-[Description of their work/contributions]
-
-Skills: [skill1] [skill2] [skill3]
-
----
+Use this exact format with PERSON: prefix and pipe separators. Use commas to separate individual skills and projects within each field.
 
 When responding about projects, use this format:
 

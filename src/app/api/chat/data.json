@@ -10,25 +10,25 @@
       "name": "Rachel  Khan",
       "role": "Backend Engineer",
       "projects": ["Project Nebula"],
-      "skills": ["Node.js", "Express", "MongoDB"]
+      "skills": ["Node.js", "Express", ".NET"]
     },
     {
         "name": "Peter Bridger",
         "role": "Backend Engineer",
         "projects": ["Project Nebula"],
-        "skills": ["Node.js", "Express", "MongoDB"]
+        "skills": ["Node.js", "Express", "C#"]
     },
     {
         "name": "Beth Gileeney",
         "role": "Senior Designer",
         "projects": ["Project Nebula"],
-        "skills": ["Node.js", "Express", "MongoDB"]
+        "skills": ["UI design", "Figma", "User Research"]
     },
     {
         "name": "Zena Zerai",
         "role": "Senior Designer",
         "projects": ["Project Nebula"],
-        "skills": ["Node.js", "Express", "MongoDB"]
+        "skills": ["UI design", "Figma", "User Research"]
     }             
   ],
   "projects": [

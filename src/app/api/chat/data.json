@@ -1,0 +1,46 @@
+{
+  "people": [
+    {
+      "name": "Gavin Thomas",
+      "role": "Frontend Architect",
+      "projects": ["Project Aurora", "Project Nebula"],
+      "skills": ["React", "Next.js", "TypeScript"]
+    },
+    {
+      "name": "Rachel  Khan",
+      "role": "Backend Engineer",
+      "projects": ["Project Nebula"],
+      "skills": ["Node.js", "Express", "MongoDB"]
+    },
+    {
+        "name": "Peter Bridger",
+        "role": "Backend Engineer",
+        "projects": ["Project Nebula"],
+        "skills": ["Node.js", "Express", "MongoDB"]
+    },
+    {
+        "name": "Beth Gileeney",
+        "role": "Senior Designer",
+        "projects": ["Project Nebula"],
+        "skills": ["Node.js", "Express", "MongoDB"]
+    },
+    {
+        "name": "Zena Zerai",
+        "role": "Senior Designer",
+        "projects": ["Project Nebula"],
+        "skills": ["Node.js", "Express", "MongoDB"]
+    }             
+  ],
+  "projects": [
+    {
+      "name": "Project Aurora",
+      "description": "A real-time collaboration tool for remote teams.",
+      "techStack": ["React", "Next.js", "Firebase"]
+    },
+    {
+      "name": "Project Nebula",
+      "description": "An internal knowledge base powered by AI search.",
+      "techStack": ["Node.js", "Express", "MongoDB"]
+    }
+  ]
+} 

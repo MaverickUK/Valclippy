@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 
 interface Message {
@@ -40,7 +38,7 @@ export default function Home() {
       <div className="flex flex-col items-center w-full max-w-xl mt-12">
         <div className="flex flex-col items-center mb-8">
           <img src="/mascot.png" alt="Mascot" className="w-24 h-24 mb-4" />
-          <h1 className="text-3xl font-semibold mb-2 text-gray-800">quirky heading?</h1>
+          <h1 className="text-3xl font-semibold mb-2">quirky heading?</h1>
         </div>
         <div className="w-full flex flex-col gap-4 mb-8">
           {messages.map((msg, idx) => (
@@ -48,8 +46,8 @@ export default function Home() {
               key={idx}
               className={
                 msg.role === 'user'
-                  ? 'self-end bg-yellow-200 rounded-xl px-6 py-4 text-lg font-medium shadow max-w-[80%] text-gray-800'
-                  : 'self-start bg-white rounded-xl px-6 py-4 text-base shadow max-w-[80%] flex items-center gap-3 text-gray-800'
+                  ? 'self-end bg-yellow-200 rounded-xl px-6 py-4 text-lg font-medium shadow max-w-[80%]'
+                  : 'self-start bg-white rounded-xl px-6 py-4 text-base shadow max-w-[80%] flex items-center gap-3'
               }
             >
               {msg.role === 'assistant' && (
@@ -63,7 +61,7 @@ export default function Home() {
             </div>
           ))}
           {loading && (
-            <div className="self-start bg-white rounded-xl px-6 py-4 text-base shadow max-w-[80%] flex items-center gap-3 opacity-60 text-gray-600">
+            <div className="self-start bg-white rounded-xl px-6 py-4 text-base shadow max-w-[80%] flex items-center gap-3 opacity-60">
               <img src="/mascot.png" alt="Mascot" className="w-8 h-8 mr-2" />
               <span>Thinking...</span>
             </div>
@@ -72,7 +70,7 @@ export default function Home() {
         <form onSubmit={handleSubmit} className="w-full flex flex-col items-center">
           <input
             type="text"
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-800 placeholder-gray-500"
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
             placeholder="How can I help?"
             value={input}
             onChange={e => setInput(e.target.value)}
@@ -87,11 +85,11 @@ export default function Home() {
           </button>
         </form>
         <div className="flex flex-wrap gap-2 mt-8 justify-center">
-          <button className="bg-gray-200 rounded-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-300">Find people based on project or skill</button>
-          <button className="bg-gray-200 rounded-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-300">Explore company policies</button>
-          <button className="bg-gray-200 rounded-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-300">Get help with internal tools</button>
-          <button className="bg-gray-200 rounded-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-300">Discover recently launched initiatives</button>
-          <button className="bg-gray-200 rounded-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-300">Browse projects using specific frameworks</button>
+          <button className="bg-gray-200 rounded-full px-4 py-2 text-sm">Find people based on project or skill</button>
+          <button className="bg-gray-200 rounded-full px-4 py-2 text-sm">Explore company policies</button>
+          <button className="bg-gray-200 rounded-full px-4 py-2 text-sm">Get help with internal tools</button>
+          <button className="bg-gray-200 rounded-full px-4 py-2 text-sm">Discover recently launched initiatives</button>
+          <button className="bg-gray-200 rounded-full px-4 py-2 text-sm">Browse projects using specific frameworks</button>
         </div>
         <div className="mt-12 text-gray-400 text-center text-sm">
           First time? Your previous prompts will live here eventually!

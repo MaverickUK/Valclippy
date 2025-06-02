@@ -1,0 +1,57 @@
+import { NextRequest, NextResponse } from 'next/server';
+import fs from 'fs';
+import path from 'path';
+
+export async function POST(req: NextRequest) {
+  try {
+    const { message } = await req.json();
+
+    // Check for API key
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (!apiKey) {
+      console.error('OPENAI_API_KEY environment variable is not set');
+      return NextResponse.json({ message: 'API key not configured. Please set OPENAI_API_KEY environment variable.' });
+    }
+
+    // Load fictional data
+    const dataPath = path.join(process.cwd(), 'src', 'app', 'api', 'chat', 'data.json');
+    const data = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
+
+    // Compose system prompt with fictional data
+    const systemPrompt = `You are ValClippy, an assistant that helps users find information about internal projects and people. Here is the internal data you can use to answer questions:\n${JSON.stringify(data, null, 2)}`;
+
+// https://platform.openai.com/docs/pricing
+// model: 'gpt-3.5-turbo',
+
+    // Call OpenAI API
+    const openaiRes = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: 'gpt-4o-mini',
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: message },
+        ],
+        max_tokens: 300,
+      }),
+    });
+
+    if (!openaiRes.ok) {
+      const errorData = await openaiRes.text();
+      console.error('OpenAI API error:', openaiRes.status, errorData);
+      return NextResponse.json({ message: `API Error: ${openaiRes.status} - Please check your API key and quota.` });
+    }
+
+    const openaiData = await openaiRes.json();
+    const assistantMessage = openaiData.choices?.[0]?.message?.content || 'Sorry, I could not generate a response.';
+
+    return NextResponse.json({ message: assistantMessage });
+  } catch (error) {
+    console.error('Chat API error:', error);
+    return NextResponse.json({ message: 'Sorry, something went wrong with the chat service.' });
+  }
+} 

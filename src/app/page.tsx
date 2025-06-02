@@ -12,6 +12,57 @@ export default function Home() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
 
+  const handleTopicClick = (topic: string) => {
+    const question = `Tell me more about: ${topic}`;
+    setInput(question);
+    // Automatically submit the question
+    handleTopicSubmit(question);
+  };
+
+  // Expose the function to the global window for onclick handlers
+  if (typeof window !== 'undefined') {
+    (window as any).handleTopicClick = handleTopicClick;
+  }
+
+  const handleTopicSubmit = async (question: string) => {
+    const userMessage: Message = { role: 'user', content: question };
+    setMessages(prev => [...prev, userMessage]);
+    setLoading(true);
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: question }),
+      });
+      const data = await res.json();
+      const assistantMessage: Message = { role: 'assistant', content: data.message };
+      setMessages(prev => [...prev, assistantMessage]);
+    } catch (err) {
+      setMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, something went wrong.' }]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const formatMessage = (text: string): string => {
+    return text
+      // Bold text: **text** -> <strong>text</strong>
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      // Italic text: *text* -> <em>text</em>
+      .replace(/\*(.*?)\*/g, '<em>$1</em>')
+      // Topic boxes: TOPIC: text -> gray clickable boxes with onclick
+      .replace(/TOPIC: (.+)/, (match, topic) => 
+        `<div class="bg-gray-300 text-gray-800 px-4 py-3 rounded-lg mb-2 cursor-pointer hover:bg-gray-400 transition-colors" onclick="window.handleTopicClick('${topic}')">${topic}</div>`
+      )
+      // Skills tags: Skills: word word -> Skills: <span class="tag">word</span> <span class="tag">word</span>
+      .replace(/Skills: (.+)/, (match, skills) => {
+        const skillTags = skills.split(' ').map((skill: string) => 
+          `<span class="inline-block bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs mr-1">${skill}</span>`
+        ).join('');
+        return `Skills: ${skillTags}`;
+      });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
@@ -55,11 +106,11 @@ export default function Home() {
               {msg.role === 'assistant' && (
                 <img src="/mascot.png" alt="Mascot" className="w-8 h-8 mr-2" />
               )}
-              <span>
+              <div>
                 {msg.content.split('\n').map((line, i) => (
-                  <div key={i}>{line}</div>
+                  <div key={i} dangerouslySetInnerHTML={{ __html: formatMessage(line) }} />
                 ))}
-              </span>
+              </div>
             </div>
           ))}
           {loading && (
@@ -69,22 +120,35 @@ export default function Home() {
             </div>
           )}
         </div>
-        <form onSubmit={handleSubmit} className="w-full flex flex-col items-center">
-          <input
-            type="text"
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-800 placeholder-gray-500"
-            placeholder="How can I help?"
-            value={input}
-            onChange={e => setInput(e.target.value)}
-            disabled={loading}
-          />
-          <button
-            type="submit"
-            className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg text-lg font-medium shadow"
-            disabled={loading}
-          >
-            <span className="inline-block align-middle">➤</span>
-          </button>
+        <form onSubmit={handleSubmit} className="w-full">
+          <div className="relative">
+            <input
+              type="text"
+              className="w-full border border-gray-300 rounded-lg px-4 py-4 pr-16 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-800 placeholder-gray-500"
+              placeholder="How can I help?"
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              disabled={loading}
+            />
+            <button
+              type="submit"
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-black hover:bg-gray-800 text-white w-10 h-10 rounded-lg flex items-center justify-center transition-colors"
+              disabled={loading}
+            >
+              <svg 
+                width="16" 
+                height="16" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </button>
+          </div>
         </form>
         <div className="flex flex-wrap gap-2 mt-8 justify-center">
           <button className="bg-gray-200 rounded-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-300">Find people based on project or skill</button>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Blob with Eyes</title>
+  <style>
+    body {
+      margin: 0;
+      background: #f4f0f4;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    svg {
+      width: 300px;
+      height: 300px;
+    }
+    .pupil {
+      transition: transform 0.05s;
+    }
+  </style>
+</head>
+<body>
+
+<svg viewBox="0 0 350 350">
+  <!-- Traced Blob Path -->
+  <path fill="#1e66f2" d="M 183,10 L 144,24 L 134,75 L 95,41 L 61,48 L 47,82 L 79,129 L 36,131 L 11,157 L 26,199 L 63,208 L 39,236 L 43,269 L 80,287 L 124,256 L 126,309 L 152,332 L 191,319 L 203,266 L 240,300 L 270,297 L 289,256 L 264,218 L 315,214 L 334,187 L 317,148 L 256,136 L 295,96 L 288,58 L 256,44 L 213,72 L 209,32 Z" />
+
+  <!-- Eyes -->
+  <circle cx="125" cy="120" r="24" fill="white" />
+  <circle cx="165" cy="120" r="24" fill="white" />
+
+  <!-- Pupils -->
+  <circle id="leftPupil" class="pupil" cx="125" cy="120" r="10" fill="black" />
+  <circle id="rightPupil" class="pupil" cx="165" cy="120" r="10" fill="black" />
+</svg>
+
+<script>
+  const leftPupil = document.getElementById('leftPupil');
+  const rightPupil = document.getElementById('rightPupil');
+
+  const eyes = {
+    left: { x: 125, y: 120 },
+    right: { x: 165, y: 120 }
+  };
+
+  const maxOffset = 6;
+
+  document.addEventListener('mousemove', (e) => {
+    const svg = document.querySelector('svg');
+    const rect = svg.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    function updatePupil(center, pupil) {
+      const dx = mouseX - center.x;
+      const dy = mouseY - center.y;
+      const angle = Math.atan2(dy, dx);
+      const offsetX = Math.cos(angle) * maxOffset;
+      const offsetY = Math.sin(angle) * maxOffset;
+      pupil.setAttribute('cx', center.x + offsetX);
+      pupil.setAttribute('cy', center.y + offsetY);
+    }
+
+    updatePupil(eyes.left, leftPupil);
+    updatePupil(eyes.right, rightPupil);
+  });
+</script>
+
+</body>
+</html>

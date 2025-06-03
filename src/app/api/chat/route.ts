@@ -13,6 +13,9 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: 'API key not configured. Please set OPENAI_API_KEY environment variable.' });
     }
 
+    // Get model from env, default to 'gpt-4o-mini'
+    const model = process.env.OPENAI_MODEL || 'gpt-4o-mini';
+
     // Load fictional data
     const dataPath = path.join(process.cwd(), 'src', 'app', 'api', 'chat', 'data.json');
     const data = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
@@ -53,7 +56,7 @@ Use this exact format for projects, with "TOPIC:" prefix for each clickable area
         'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: 'gpt-4o-mini',
+        model,
         messages: [
           { role: 'system', content: systemPrompt },
           { role: 'user', content: message },

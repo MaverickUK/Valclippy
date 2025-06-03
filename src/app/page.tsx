@@ -52,6 +52,7 @@ export default function Home() {
         w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center text-gray-700 font-semibold text-sm flex-shrink-0
         inline-block bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs mr-1
         inline-block bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs mr-1
+        bg-gray-300 text-gray-800 px-4 py-3 rounded-lg mb-2 cursor-pointer hover:bg-gray-400 transition-colors
       </div>
     </div>
   );

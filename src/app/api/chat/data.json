@@ -3,43 +3,108 @@
     {
       "name": "Gavin Thomas",
       "role": "Frontend Architect",
-      "projects": ["Project Aurora", "Project Nebula"],
-      "skills": ["React", "Next.js", "TypeScript"]
+      "projects": ["MandM Direct", "EasyJet"],
+      "skills": ["React", "Next.js", "TypeScript"],
+      "holidays": [
+        "2025-02-10", "2025-02-11", "2025-02-12", "2025-02-13", "2025-02-14",
+        "2025-04-07", "2025-04-08",
+        "2025-05-05", "2025-05-06", "2025-05-07",
+        "2025-06-16", "2025-06-17", "2025-06-18", "2025-06-19", "2025-06-20",
+        "2025-07-14",
+        "2025-08-11", "2025-08-12",
+        "2025-09-22", "2025-09-23", "2025-09-24",
+        "2025-10-13",
+        "2025-11-03", "2025-11-04",
+        "2025-12-22", "2025-12-23"
+      ]
     },
     {
       "name": "Rachel  Khan",
       "role": "Backend Engineer",
-      "projects": ["Project Nebula"],
-      "skills": ["Node.js", "Express", ".NET"]
+      "projects": ["EasyJet"],
+      "skills": ["Node.js", "Express", ".NET"],
+      "holidays": [
+        "2025-01-13", "2025-01-14", "2025-01-15",
+        "2025-03-03", "2025-03-04", "2025-03-05", "2025-03-06", "2025-03-07",
+        "2025-04-21",
+        "2025-05-19", "2025-05-20",
+        "2025-06-09", "2025-06-10", "2025-06-11",
+        "2025-06-30",
+        "2025-08-04", "2025-08-05", "2025-08-06", "2025-08-07", "2025-08-08",
+        "2025-09-15",
+        "2025-10-20", "2025-10-21",
+        "2025-11-17", "2025-11-18",
+        "2025-12-29"
+      ]
     },
     {
-        "name": "Peter Bridger",
-        "role": "Backend Engineer",
-        "projects": ["Project Nebula"],
-        "skills": ["Node.js", "Express", "C#"]
+      "name": "Peter Bridger",
+      "role": "Backend Engineer",
+      "projects": ["Eas"],
+      "skills": ["Node.js", "Express", "C#"],
+      "holidays": [
+        "2025-01-20", "2025-01-21",
+        "2025-02-17", "2025-02-18", "2025-02-19", "2025-02-20", "2025-02-21",
+        "2025-03-17",
+        "2025-04-14", "2025-04-15",
+        "2025-05-12", "2025-05-13", "2025-05-14",
+        "2025-06-02",
+        "2025-07-21", "2025-07-22", "2025-07-23", "2025-07-24", "2025-07-25",
+        "2025-08-18",
+        "2025-09-08", "2025-09-09",
+        "2025-10-06", "2025-10-07",
+        "2025-11-10",
+        "2025-12-15", "2025-12-16"
+      ]
     },
     {
-        "name": "Beth Gileeney",
-        "role": "Senior Designer",
-        "projects": ["Project Nebula"],
-        "skills": ["UI design", "Figma", "User Research"]
+      "name": "Beth Gileeney",
+      "role": "Senior Designer",
+      "projects": ["MandM Direct"],
+      "skills": ["UI design", "Figma", "User Research"],
+      "holidays": [
+        "2025-02-03", "2025-02-04", "2025-02-05", "2025-02-06", "2025-02-07",
+        "2025-03-24",
+        "2025-04-28", "2025-04-29",
+        "2025-05-26", "2025-05-27", "2025-05-28",
+        "2025-06-23",
+        "2025-07-28", "2025-07-29", "2025-07-30",
+        "2025-08-25",
+        "2025-09-29", "2025-09-30",
+        "2025-10-27", "2025-10-28",
+        "2025-11-24",
+        "2025-12-01", "2025-12-02"
+      ]
     },
     {
-        "name": "Zena Zerai",
-        "role": "Senior Designer",
-        "projects": ["Project Nebula"],
-        "skills": ["UI design", "Figma", "User Research"]
+      "name": "Zena Zerai",
+      "role": "Senior Designer",
+      "projects": ["EasyJet"],
+      "skills": ["UI design", "Figma", "User Research"],
+      "holidays": [
+        "2025-01-06", "2025-01-07", "2025-01-08", "2025-01-09", "2025-01-10",
+        "2025-03-10",
+        "2025-04-07", "2025-04-08",
+        "2025-04-30", "2025-05-01", "2025-05-02",
+        "2025-06-03",
+        "2025-07-07", "2025-07-08", "2025-07-09",
+        "2025-08-19",
+        "2025-09-01", "2025-09-02",
+        "2025-10-14", "2025-10-15",
+        "2025-11-11",
+        "2025-12-08", "2025-12-09"
+      ]
     }             
   ],
   "projects": [
     {
-      "name": "Project Aurora",
-      "description": "A real-time collaboration tool for remote teams.",
-      "techStack": ["React", "Next.js", "Firebase"]
+      "name": "EasyJet",
+      "description": "Ticket booking system for EasyJet across all European countries",
+      "techStack": ["React", "Next.js", "Firebase", "SiteCore"]
     },
     {
-      "name": "Project Nebula",
-      "description": "An internal knowledge base powered by AI search.",
+      "name": "MandM Direct",
+      "description": "Website rebuild project for MandM Direct using AI assisted search technology",
       "techStack": ["Node.js", "Express", "MongoDB"]
     }
   ]

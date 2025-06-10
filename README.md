@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ValClippy Chat
+
+A conversational interface built with Next.js and OpenAI, designed to help users find information about internal projects and people. The app features a chat UI, LLM integration, and a fictional data source for demonstration.
+
+If this was real it would search real Valtech information repositories (e.g. Confluence, SharePoint, Suite Projects Pro) however for this prototype all the data it uses is held within `/src/app/api/chat/data.json`. This data is then supplied with a prompt held within `/src/app/api/chat/route.ts` which communicates to the LLM how to answer the users questions.
+
+## Features
+- Conversational chat interface with chat bubbles
+- OpenAI (ChatGPT) integration
+- Fictional internal data (people & projects) via JSON
+- Modular React components and hooks
+- Tailwind CSS styling
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the repository
+```bash
+git clone <your-repo-url>
+cd valclippy-chat
+```
 
+### 2. Install dependencies
+```bash
+npm install
+# or
+yarn install
+```
+
+### 3. Set up environment variables
+Create a `.env.local` file in the root directory with the following:
+```env
+OPENAI_API_KEY=sk-...your-openai-key...
+OPENAI_MODEL=gpt-4o-mini
+```
+- `OPENAI_API_KEY`: Your OpenAI API key (required)
+- `OPENAI_MODEL`: (Optional) The OpenAI model to use (default: `gpt-4o-mini`)
+
+### 4. Run the development server
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to use the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
+- `src/app/page.tsx` — Main chat UI, uses modular components/hooks
+- `src/app/api/chat/route.ts` — API route for LLM chat, loads data and calls OpenAI
+- `src/app/api/chat/data.json` — Fictional people and projects data
+- `src/components/` — UI components (chat input, message bubble, suggestions)
+- `src/hooks/` — Custom React hooks (chat state, greeting)
+- `src/services/` — API call logic
+- `src/utils/` — Message formatting utilities
+- `src/constants/` — Greeting messages
+- `src/types/` — TypeScript types
+- `public/mascot.png` — Mascot image for the assistant
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Customization
+- To change the fictional data, edit `src/app/api/chat/data.json`.
+- To use a different OpenAI model, set `OPENAI_MODEL` in `.env.local`.
 
-## Learn More
+## Notes
+- Tailwind CSS is used for styling. If you add new dynamic classes in injected HTML, update the safelist in `src/app/page.tsx`.
+- The app is for demonstration and internal hackathon use. Do not expose your OpenAI API key publicly.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+MIT (or your chosen license)

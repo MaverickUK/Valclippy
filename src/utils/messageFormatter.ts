@@ -53,10 +53,10 @@ export function formatMessage(text: string): string {
       const docRows = docs.map(doc => {
         const getSourceIcon = (source: string) => {
           switch(source) {
-            case 'confluence': return '🔷';
-            case 'excel': return '📊';
-            case 'word': return '📄';
-            case 'teams': return '💬';
+            case 'confluence': return '<img src="/icons/confluence.png" style="width: 24px; height: 24px;" />';
+            case 'excel': return '<img src="/icons/excel.png" style="width: 24px; height: 24px;" />';
+            case 'word': return '<img src="/icons/word.png" style="width: 24px; height: 24px;" />';
+            case 'teams': return '<img src="/icons/teams.png" style="width: 24px; height: 24px;" />';
             default: return '📁';
           }
         };

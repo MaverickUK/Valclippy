@@ -101,6 +101,54 @@ export function formatMessage(text: string): string {
         </div>
       </div>`;
     })
+    // Holiday display: HOLIDAYS: initials|person_name|role|date1,date2,date3...
+    .replace(/HOLIDAYS: ([^|]+)\|([^|]+)\|([^|]+)\|(.*)/g, (match, initials, personName, role, holidayDates) => {
+      const dates = holidayDates.split(',').map(date => date.trim()).filter(date => date);
+      
+      // Group dates by month
+      const groupedByMonth = dates.reduce((acc, dateStr) => {
+        const date = new Date(dateStr + 'T00:00:00');
+        const monthYear = date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+        if (!acc[monthYear]) acc[monthYear] = [];
+        acc[monthYear].push({
+          date: date.getDate(),
+          full: date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })
+        });
+        return acc;
+      }, {} as Record<string, Array<{date: number, full: string}>>);
+      
+      // Create month sections
+      const monthSections = Object.entries(groupedByMonth).map(([monthYear, dates]) => {
+        const sortedDates = dates.sort((a, b) => a.date - b.date);
+        const dateList = sortedDates.map(d => 
+          `<span class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm mr-2 mb-1">${d.full}</span>`
+        ).join('');
+        
+        return `
+          <div class="mb-4">
+            <h4 class="font-semibold text-gray-800 mb-2 flex items-center gap-2">
+              <span class="text-lg">📅</span>
+              ${monthYear}
+            </h4>
+            <div class="ml-6">
+              ${dateList}
+            </div>
+          </div>
+        `;
+      }).join('');
+      
+      const totalDays = dates.length;
+      
+      return `<div class="flex items-start gap-4 mb-6 p-4 bg-gray-50 rounded-lg">
+        <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center text-gray-700 font-semibold text-sm flex-shrink-0">${initials}</div>
+        <div class="flex-1">
+          <h3 class="font-semibold text-lg text-gray-900">${personName}</h3>
+          <p class="text-gray-600 text-sm mb-2">${role}</p>
+          <p class="text-gray-600 text-sm mb-3">${totalDays} days scheduled for 2025</p>
+          ${monthSections}
+        </div>
+      </div>`;
+    })
     // Topic boxes: TOPIC: text -> gray clickable boxes with onclick
     .replace(/TOPIC: (.+)/, (match, topic) => 
       `<div class="bg-gray-300 text-gray-800 px-4 py-3 rounded-lg mb-2 cursor-pointer hover:bg-gray-400 transition-colors" onclick="window.handleTopicClick('${topic}')">${topic}</div>`

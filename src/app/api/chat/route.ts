@@ -52,7 +52,16 @@ DOCLIST: [Project Name]|[doc1 name]:[source]:[last modified]::[warning]|[doc2 na
 For example:
 DOCLIST: EasyJet|Sprint Planning Notes:confluence:2 days ago by BG::|Burndown Chart:excel:4 days ago by BG::|Definition of Done:confluence:A year ago by BG::May be outdated
 
-Use this exact format when someone asks about documentation for a project. Note the double colon (::) where URL would be - this is required for parsing. The warning field is optional and should only be included if there's a warning in the data.`;
+Use this exact format when someone asks about documentation for a project. Note the double colon (::) where URL would be - this is required for parsing. The warning field is optional and should only be included if there's a warning in the data.
+
+When responding about someone's holidays or vacation schedule, use this special format:
+
+HOLIDAYS: [Initials]|[Full Name]|[Job Title]|[date1],[date2],[date3],...
+
+For example:
+HOLIDAYS: GT|Gavin Thomas|Frontend Architect|2025-02-10,2025-02-11,2025-02-12,2025-02-13,2025-02-14,2025-04-07,2025-04-08
+
+Use this exact format when someone asks about holidays, vacation days, time off, or when someone will be away. Include the person's initials, full name, and job title, then convert the holiday data from the JSON into this comma-separated format.`;
 
 // https://platform.openai.com/docs/pricing
 // model: 'gpt-3.5-turbo',

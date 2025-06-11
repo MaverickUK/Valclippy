@@ -15,13 +15,9 @@ export function MessageBubble({ message }: MessageBubbleProps) {
   }
 
   return (
-    <div className="self-start px-6 py-4 text-base max-w-[80%] flex items-start gap-3 text-gray-800">
+    <div className="self-start px-6 py-4 text-base max-w-[90%] flex items-start gap-3 text-gray-800">
       <img src="/mascot.png" alt="Mascot" className="w-8 h-8 mr-2" />
-      <div>
-        {message.content.split('\n').map((line, i) => (
-          <div key={i} dangerouslySetInnerHTML={{ __html: formatMessage(line) }} />
-        ))}
-      </div>
+      <div dangerouslySetInnerHTML={{ __html: formatMessage(message.content) }} />
     </div>
   );
 }

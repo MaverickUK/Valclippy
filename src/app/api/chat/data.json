@@ -100,12 +100,89 @@
     {
       "name": "EasyJet",
       "description": "Ticket booking system for EasyJet across all European countries",
-      "techStack": ["React", "Next.js", "Firebase", "SiteCore"]
+      "techStack": ["React", "Next.js", "Firebase", "SiteCore"],
+      "documentation": [
+        {
+          "name": "Sprint Planning Notes",
+          "source": "confluence",
+          "lastModified": "2 days ago by BG",
+          "url": "https://easyjet.atlassian.net/wiki/spaces/EJ/pages/123456"
+        },
+        {
+          "name": "Retrospective Action Items",
+          "source": "confluence",
+          "lastModified": "2 days ago by BG",
+          "url": "https://easyjet.atlassian.net/wiki/spaces/EJ/pages/123457"
+        },
+        {
+          "name": "Burndown Chart",
+          "source": "excel",
+          "lastModified": "4 days ago by BG",
+          "url": "https://easyjet.sharepoint.com/sites/ProjectX/Documents/burndown.xlsx"
+        },
+        {
+          "name": "Team Collaboration Guidelines",
+          "source": "confluence",
+          "lastModified": "4 months ago by BG",
+          "url": "https://easyjet.atlassian.net/wiki/spaces/EJ/pages/123458"
+        },
+        {
+          "name": "User Story Definitions",
+          "source": "word",
+          "lastModified": "7 months ago by BG",
+          "url": "https://easyjet.sharepoint.com/sites/ProjectX/Documents/user-stories.docx"
+        },
+        {
+          "name": "Definition of Done",
+          "source": "confluence",
+          "lastModified": "A year ago by BG",
+          "url": "https://easyjet.atlassian.net/wiki/spaces/EJ/pages/123459",
+          "warning": "May be outdated"
+        }
+      ]
     },
     {
       "name": "MandM Direct",
       "description": "Website rebuild project for MandM Direct using AI assisted search technology",
-      "techStack": ["Node.js", "Express", "MongoDB"]
+      "techStack": ["Node.js", "Express", "MongoDB"],
+      "documentation": [
+        {
+          "name": "API Documentation",
+          "source": "confluence",
+          "lastModified": "1 day ago by GT",
+          "url": "https://mandm.atlassian.net/wiki/spaces/MM/pages/789123"
+        },
+        {
+          "name": "Architecture Decisions",
+          "source": "confluence",
+          "lastModified": "3 days ago by GT",
+          "url": "https://mandm.atlassian.net/wiki/spaces/MM/pages/789124"
+        },
+        {
+          "name": "Database Schema",
+          "source": "excel",
+          "lastModified": "1 week ago by PB",
+          "url": "https://mandm.sharepoint.com/sites/ProjectY/Documents/schema.xlsx"
+        },
+        {
+          "name": "Design System",
+          "source": "confluence",
+          "lastModified": "2 weeks ago by BG",
+          "url": "https://mandm.atlassian.net/wiki/spaces/MM/pages/789125"
+        },
+        {
+          "name": "Testing Strategy",
+          "source": "word",
+          "lastModified": "1 month ago by RK",
+          "url": "https://mandm.sharepoint.com/sites/ProjectY/Documents/testing.docx"
+        },
+        {
+          "name": "Performance Metrics",
+          "source": "teams",
+          "lastModified": "2 months ago by ZZ",
+          "url": "https://teams.microsoft.com/l/file/performance-metrics.pdf"
+        }
+      ]
     }
   ]
 } 

@@ -43,7 +43,16 @@ TOPIC: [Other relevant areas based on available data]
 
 Would you like to know about one of these areas specifically, or multiple topics?
 
-Use this exact format for projects, with "TOPIC:" prefix for each clickable area. Include relevant topic areas based on the project data available.`;
+Use this exact format for projects, with "TOPIC:" prefix for each clickable area. Include relevant topic areas based on the project data available.
+
+When responding about project documentation specifically, use this special format:
+
+DOCLIST: [Project Name]|[doc1 name]:[source]:[last modified]::[warning]|[doc2 name]:[source]:[last modified]::|...
+
+For example:
+DOCLIST: EasyJet|Sprint Planning Notes:confluence:2 days ago by BG::|Burndown Chart:excel:4 days ago by BG::|Definition of Done:confluence:A year ago by BG::May be outdated
+
+Use this exact format when someone asks about documentation for a project. Note the double colon (::) where URL would be - this is required for parsing. The warning field is optional and should only be included if there's a warning in the data.`;
 
 // https://platform.openai.com/docs/pricing
 // model: 'gpt-3.5-turbo',

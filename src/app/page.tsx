@@ -3,6 +3,7 @@
 import { SuggestionButtons } from '@/components/SuggestionButtons';
 import { ChatInput } from '@/components/ChatInput';
 import { MessageBubble } from '@/components/MessageBubble';
+import { LoadingAnimation } from '@/components/LoadingAnimation';
 import { useRandomGreeting } from '@/hooks/useRandomGreeting';
 import { useChat } from '@/hooks/useChat';
 import { Message } from '@/types/chat';
@@ -35,9 +36,9 @@ export default function Home() {
             <MessageBubble key={idx} message={msg} />
           ))}
           {loading && (
-            <div className="self-start px-6 py-4 text-base max-w-[80%] flex items-start gap-3 opacity-60 text-gray-600">
+            <div className="self-start px-6 py-4 text-base max-w-[80%] flex items-start gap-3 opacity-60">
               <img src="/mascot.png" alt="Mascot" className="w-8 h-8 mr-2" />
-              <span>Thinking...</span>
+              <LoadingAnimation />
             </div>
           )}
         </div>

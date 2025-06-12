@@ -20,37 +20,23 @@ export async function POST(req: NextRequest) {
     const dataPath = path.join(process.cwd(), 'src', 'app', 'api', 'chat', 'data.json');
     const data = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
 
-    // Compose system prompt with fictional data
-    const systemPrompt = `You are ValClippy, an assistant that helps users find information about internal projects and people. Here is the internal data you can use to answer questions:\n${JSON.stringify(data, null, 2)}
+    // Generate current date and time information
+    const now = new Date();
+    const currentDateTime = {
+      date: now.toISOString().split('T')[0], // YYYY-MM-DD
+      time: now.toTimeString().split(' ')[0], // HH:MM:SS
+      month: now.toLocaleString('default', { month: 'long' }), // Full month name
+      year: now.getFullYear(),
+      dayOfWeek: now.toLocaleString('default', { weekday: 'long' }), // Full day name
+      timestamp: now.toISOString()
+    };
 
-When responding about people, format each person like this example:
-
-PERSON: [Initials]|[Full Name]|[Job Title]|[Description of their work/contributions]|[skill1,skill2,skill3]|[project1,project2,project3]
-
-Use this exact format with PERSON: prefix and pipe separators. Use commas to separate individual skills and projects within each field.
-
-When responding about projects, provide a natural, conversational response about the project without any special formatting. Include relevant information about the project description, tech stack, team members, and any other details from the data, but present it in plain text format.
-
-When responding about project documentation specifically, use this special format:
-
-DOCLIST: [Project Name]|[doc1 name]:[source]:[last modified]::[warning]|[doc2 name]:[source]:[last modified]::|...
-
-For example:
-DOCLIST: EasyJet|Sprint Planning Notes:confluence:2 days ago by BG::|Burndown Chart:excel:4 days ago by BG::|Definition of Done:confluence:A year ago by BG::May be outdated
-
-Use this exact format when someone asks about documentation for a project. Note the double colon (::) where URL would be - this is required for parsing. The warning field is optional and should only be included if there's a warning in the data.
-
-When responding about someone's holidays or vacation schedule, use this special format:
-
-HOLIDAYS: [Initials]|[Full Name]|[Job Title]|[date1],[date2],[date3],...
-
-For example:
-HOLIDAYS: GT|Gavin Thomas|Frontend Architect|2025-02-10,2025-02-11,2025-02-12,2025-02-13,2025-02-14,2025-04-07,2025-04-08
-
-Use this exact format when someone asks about holidays, vacation days, time off, or when someone will be away. Include the person's initials, full name, and job title, then convert the holiday data from the JSON into this comma-separated format.`;
-
-// https://platform.openai.com/docs/pricing
-// model: 'gpt-3.5-turbo',
+    // Load system prompt from file
+    const promptPath = path.join(process.cwd(), 'src', 'prompts', 'systemPrompt.txt');
+    const systemPromptTemplate = fs.readFileSync(promptPath, 'utf-8');
+    const systemPrompt = systemPromptTemplate
+      .replace('{{CURRENT_DATETIME}}', JSON.stringify(currentDateTime, null, 2))
+      .replace('{{INTERNAL_DATA}}', JSON.stringify(data, null, 2));
 
     // Call OpenAI API
     const openaiRes = await fetch('https://api.openai.com/v1/chat/completions', {

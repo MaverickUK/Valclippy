@@ -5,7 +5,7 @@ export function formatMessage(text: string): string {
     // Italic text: *text* -> <em>text</em>
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
     // Person cards: PERSON: initials|name|role|description|skills|projects
-    .replace(/PERSON: ([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|(.+?)(?=\s*PERSON:|$)/g, (match, initials, name, role, description, skills, projects) => {
+    .replace(/PERSON: ([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^|\n]+)/g, (match, initials, name, role, description, skills, projects) => {
       const skillTags = formatTags(skills, 'bg-gray-200 text-gray-700');
       const projectTags = formatTags(projects, 'bg-blue-100 text-blue-700');
       

@@ -29,21 +29,7 @@ PERSON: [Initials]|[Full Name]|[Job Title]|[Description of their work/contributi
 
 Use this exact format with PERSON: prefix and pipe separators. Use commas to separate individual skills and projects within each field.
 
-When responding about projects, use this format:
-
-How exciting!
-
-Here's what I know about [Project Name]...
-
-TOPIC: People on the project
-TOPIC: Existing project documentation  
-TOPIC: Design insights
-TOPIC: Technical insights
-TOPIC: [Other relevant areas based on available data]
-
-Would you like to know about one of these areas specifically, or multiple topics?
-
-Use this exact format for projects, with "TOPIC:" prefix for each clickable area. Include relevant topic areas based on the project data available.
+When responding about projects, provide a natural, conversational response about the project without any special formatting. Include relevant information about the project description, tech stack, team members, and any other details from the data, but present it in plain text format.
 
 When responding about project documentation specifically, use this special format:
 

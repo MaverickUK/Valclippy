@@ -4,7 +4,7 @@
       "name": "Gavin Thomas",
       "role": "Frontend Architect",
       "projects": ["MandM Direct", "EasyJet"],
-      "skills": ["React", "Next.js", "TypeScript"],
+      "skills": ["React", "Next.js", "TypeScript", "Sitecore"],
       "holidays": [
         "2025-02-10", "2025-02-11", "2025-02-12", "2025-02-13", "2025-02-14",
         "2025-04-07", "2025-04-08",
@@ -22,7 +22,7 @@
       "name": "Rachel  Khan",
       "role": "Backend Engineer",
       "projects": ["EasyJet"],
-      "skills": ["Node.js", "Express", ".NET"],
+      "skills": ["Node.js", "Express", ".NET", "Sitecore"],
       "holidays": [
         "2025-01-13", "2025-01-14", "2025-01-15",
         "2025-03-03", "2025-03-04", "2025-03-05", "2025-03-06", "2025-03-07",
@@ -99,7 +99,7 @@
   "projects": [
     {
       "name": "EasyJet",
-      "description": "Ticket booking system for EasyJet across all European countries",
+      "description": "easyJet is an European airline that has been a long term client since 2010. Currently we have 4 teams working on separate streams of work - Thunderbirds, Albatross, Nimbus and Spitfire. We also have representatives on other teams for the Group Booking PoC and CORE workstreams. It is a big Sitecore solution. We are delivering new features and supporting the main site - www.easyjet.com. Simultaneously, we are in the process of transitioning from a big monolith to micro services - looking for opportunities to break out areas of functionality that would align with the objectives the business wants to achieve. We are involved in a lot of the areas of the site including the user journeys to make and amend bookings and to check in.",
       "techStack": ["React", "Next.js", "Firebase", "SiteCore"],
       "documentation": [
         {

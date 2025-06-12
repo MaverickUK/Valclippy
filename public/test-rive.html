@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://unpkg.com/@rive-app/canvas"></script>
+
+</head>
+<body>
+  <canvas id="riveCanvas" width="500" height="500"></canvas>
+
+  <script>
+    new rive.Rive({
+      // src: "https://cdn.rive.app/animations/vehicles.riv",
+      src: "https://public.rive.app/hosted/337622/271041/1-muhR8cqEu-ApELSMyltg.riv",
+      canvas: document.getElementById("riveCanvas"),
+      autoplay: true,
+      stateMachines: ["State Machine 1"], // Replace with your actual state machine name
+      onLoad: (riveInstance) => {
+        console.log("Rive loaded");
+        console.log(riveInstance);
+  
+        /*
+        const inputs = riveInstance.stateMachineInputs("State Machine 1");
+        console.log("Inputs:", inputs);
+  
+        // Example: fire a trigger input if it exists
+        const trigger = inputs.find(i => i.name === "Start" && i.type === "trigger");
+        if (trigger) {
+          trigger.fire();
+        }
+          */
+      }
+    });
+  </script>
+  
+
+</body>
+</html>

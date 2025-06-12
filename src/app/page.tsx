@@ -4,6 +4,7 @@ import { SuggestionButtons } from '@/components/SuggestionButtons';
 import { ChatInput } from '@/components/ChatInput';
 import { MessageBubble } from '@/components/MessageBubble';
 import { LoadingAnimation } from '@/components/LoadingAnimation';
+import { RiveMascot } from '@/components/RiveMascot';
 import { useRandomGreeting } from '@/hooks/useRandomGreeting';
 import { useChat } from '@/hooks/useChat';
 import { Message } from '@/types/chat';
@@ -28,7 +29,9 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4">
       <div className="flex flex-col items-center w-full max-w-2xl mt-12">
         <div className="flex flex-col items-center mb-8">
-          <img src="/mascot.png" alt="Mascot" className="w-24 h-24 mb-4" />
+          <div className="mb-4">
+            <RiveMascot />
+          </div>
           <h1 className={`text-3xl font-semibold mb-2 text-gray-800 text-center ${isAnimating ? 'animate-fade-out' : 'animate-fade-in'}`}>
             {greeting}
           </h1>

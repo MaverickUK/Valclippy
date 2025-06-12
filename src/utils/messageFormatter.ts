@@ -144,7 +144,7 @@ export function formatMessage(text: string): string {
         <div class="flex-1">
           <h3 class="font-semibold text-lg text-gray-900">${personName}</h3>
           <p class="text-gray-600 text-sm mb-2">${role}</p>
-          <p class="text-gray-600 text-sm mb-3">${totalDays} days scheduled for 2025</p>
+          <p class="text-gray-600 text-sm mb-3">${totalDays} days scheduled</p>
           ${monthSections}
         </div>
       </div>`;

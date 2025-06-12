@@ -39,7 +39,7 @@ export function formatMessage(text: string): string {
       const filterTabs = `
         <div class="flex items-center gap-2 mb-4">
           <span class="bg-blue-200 text-blue-800 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap">All ${totalCount}</span>
-          ${sourceCounts.confluence ? `<span class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap">Confluence ${sourceCounts.confluence}</span>` : ''}
+          ${sourceCounts.confluence ? `<span class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap">Conflu ${sourceCounts.confluence}</span>` : ''}
           ${sourceCounts.excel ? `<span class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap">Excel ${sourceCounts.excel}</span>` : ''}
           ${sourceCounts.word ? `<span class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap">Word ${sourceCounts.word}</span>` : ''}
           ${sourceCounts.teams ? `<span class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap">Teams ${sourceCounts.teams}</span>` : ''}

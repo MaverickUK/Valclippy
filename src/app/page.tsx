@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4">
-      <div className="flex flex-col items-center w-full max-w-xl mt-12">
+      <div className="flex flex-col items-center w-full max-w-2xl mt-12">
         <div className="flex flex-col items-center mb-8">
           <img src="/mascot.png" alt="Mascot" className="w-24 h-24 mb-4" />
           <h1 className="text-3xl font-semibold mb-2 text-gray-800 text-center">{greeting}</h1>

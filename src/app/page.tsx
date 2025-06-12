@@ -11,7 +11,7 @@ import { formatMessage } from '@/utils/messageFormatter';
 import { useCallback } from 'react';
 
 export default function Home() {
-  const greeting = useRandomGreeting();
+  const { greeting, isAnimating } = useRandomGreeting();
   const { messages, loading, addMessage } = useChat();
 
   // For clickable topic suggestions in LLM output
@@ -29,7 +29,9 @@ export default function Home() {
       <div className="flex flex-col items-center w-full max-w-2xl mt-12">
         <div className="flex flex-col items-center mb-8">
           <img src="/mascot.png" alt="Mascot" className="w-24 h-24 mb-4" />
-          <h1 className="text-3xl font-semibold mb-2 text-gray-800 text-center">{greeting}</h1>
+          <h1 className={`text-3xl font-semibold mb-2 text-gray-800 text-center ${isAnimating ? 'animate-fade-out' : 'animate-fade-in'}`}>
+            {greeting}
+          </h1>
         </div>
         <div className="w-full flex flex-col gap-4 mb-8">
           {messages.map((msg, idx) => (

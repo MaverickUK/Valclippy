@@ -1,5 +1,4 @@
 export const GREETING_MESSAGES = [
-  "It looks like you're trying to write a letter?",
   "I see you're back! Need help with anything today?",
   "What workplace mystery shall we solve?",
   "It appears you need assistance! I'm here to help!",

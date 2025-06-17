@@ -3,7 +3,18 @@
     {
       "name": "Gavin Thomas",
       "role": "Frontend Architect",
-      "projects": ["MandM Direct", "EasyJet"],
+      "projects": [
+        {
+          "name": "MandM Direct",
+          "startDate": "2025-04-01",
+          "endDate": null
+        },
+        {
+          "name": "EasyJet",
+          "startDate": "2023-06-01",
+          "endDate": "2024-04-01"
+        }
+      ],
       "skills": ["React", "Next.js", "TypeScript", "Sitecore"],
       "holidays": [
         "2025-02-10", "2025-02-11", "2025-02-12", "2025-02-13", "2025-02-14",
@@ -21,7 +32,13 @@
     {
       "name": "Rachel  Khan",
       "role": "Backend Engineer",
-      "projects": ["EasyJet"],
+      "projects": [
+        {
+          "name": "EasyJet",
+          "startDate": "2018-09-01",
+          "endDate": null
+        }
+      ],
       "skills": ["Node.js", "Express", ".NET", "Sitecore"],
       "holidays": [
         "2025-01-13", "2025-01-14", "2025-01-15",
@@ -40,7 +57,8 @@
     {
       "name": "Peter Bridger",
       "role": "Backend Engineer",
-      "projects": ["Eas"],
+      "projects": [
+      ],
       "skills": ["Node.js", "Express", "C#"],
       "holidays": [
         "2025-01-20", "2025-01-21",
@@ -60,7 +78,13 @@
     {
       "name": "Beth Gileeney",
       "role": "Senior Designer",
-      "projects": ["MandM Direct"],
+      "projects": [
+        {
+          "name": "MandM Direct",
+          "startDate": "2025-01-01",
+          "endDate": null
+        }
+      ],
       "skills": ["UI design", "Figma", "User Research"],
       "holidays": [
         "2025-02-03", "2025-02-04", "2025-02-05", "2025-02-06", "2025-02-07",
@@ -79,7 +103,13 @@
     {
       "name": "Zena Zerai",
       "role": "Senior Designer",
-      "projects": ["EasyJet"],
+      "projects": [
+        {
+          "name": "EasyJet",
+          "startDate": "2023-12-01",
+          "endDate": null
+        }
+      ],
       "skills": ["UI design", "Figma", "User Research"],
       "holidays": [
         "2025-01-06", "2025-01-07", "2025-01-08", "2025-01-09", "2025-01-10",

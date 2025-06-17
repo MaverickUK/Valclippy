@@ -4,6 +4,12 @@ export function formatMessage(text: string): string {
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     // Italic text: *text* -> <em>text</em>
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    // How it works image: HOWITWORKS: /path/to/image.jpg
+    .replace(/HOWITWORKS: (.*)/g, (match, imagePath) => 
+      `<div class="flex justify-center my-4">
+        <img src="${imagePath}" alt="How ValClippy works" class="max-w-full rounded-lg shadow-lg" />
+      </div>`
+    )
     // Person cards: PERSON: initials|name|role|description|skills|projects
     .replace(/PERSON: ([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^|\n]+)/g, (match, initials, name, role, description, skills, projects) => {
       const skillTags = formatTags(skills, 'bg-gray-200 text-gray-700');

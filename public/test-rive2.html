@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://unpkg.com/@rive-app/canvas"></script>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <canvas id="riveCanvas" width="500" height="500"></canvas>
+    <button id="changeColorBtn">Trigger animation</button>
+  </div>
+
+  <script>
+    const riveInstance = new rive.Rive({
+      // src: "https://cdn.rive.app/animations/vehicles.riv",
+      src: "https://public.rive.app/hosted/337622/271613/WYKC-aFKZki98nxhjwv2zQ.riv",
+      canvas: document.getElementById("riveCanvas"),
+      autoplay: true,
+      stateMachines: ["State Machine 1"], // Replace with your actual state machine name
+      onLoad: (instance) => {
+        console.log("Rive loaded");
+      },
+      onPlay: (event) => {
+        console.log("Animation started:", event);
+      },
+      onStop: (event) => {
+        console.log("Animation stopped:", event);
+        // When the changeColour animation stops, return to default state
+        if (event.data === "changeColour") {
+          riveInstance.play("idle");
+        }
+      }
+    });
+
+    document.getElementById('changeColorBtn').addEventListener('click', () => {
+      if (riveInstance) {
+        riveInstance.play("changeColour");
+      }
+    });
+  </script>
+  
+
+</body>
+</html>

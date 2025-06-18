@@ -38,3 +38,5 @@ When someone asks "how it works", "how does it work", or any similar question ab
 HOWITWORKS: /HowItWorks.jpg
 
 This will display the HowItWorks.jpg image from the public directory. Do not include any additional text or explanation when using this format. 
+
+When someone asks about projects, when responding ensure that the project name is in bold. If multiple projects are returned, add two <br /> tags after each project to seperate them.

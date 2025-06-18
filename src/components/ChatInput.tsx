@@ -31,6 +31,12 @@ export function ChatInput({ onSubmit, disabled = false }: ChatInputProps) {
       const transcript = event.results[0][0].transcript;
       setInput(transcript);
       setIsListening(false);
+      
+      // Automatically submit the message after speech recognition
+      if (transcript.trim() && !disabled) {
+        onSubmit(transcript);
+        setInput('');
+      }
     };
 
     recognitionRef.current.onerror = (event) => {

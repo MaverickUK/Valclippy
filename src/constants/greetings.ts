@@ -2,7 +2,7 @@ export const GREETING_MESSAGES = [
   "I see you're back! Need help with anything today?",
   "What workplace mystery shall we solve?",
   "It appears you need assistance! I'm here to help!",
-  "Looking for someone or something? I'm your guy!",
+  "Looking for someone or something? I can help!",
   "Welcome back! Ready to dive into some company intel?",
   "I detect you might need some information. How exciting!",
   "It seems like you're searching for answers!",

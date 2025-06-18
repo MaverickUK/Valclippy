@@ -58,6 +58,11 @@
       "name": "Peter Bridger",
       "role": "Backend Engineer",
       "projects": [
+        {
+          "name": "MandM Direct",
+          "startDate": "2025-01-01",
+          "endDate": null
+        }
       ],
       "skills": ["Node.js", "Express", "C#"],
       "holidays": [

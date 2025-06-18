@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>Valclippy</title>
+<head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #008080;
+      font-family: 'MS Sans Serif', 'Microsoft Sans Serif', sans-serif;
+    }
+    
+    .start-button {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      padding: 40px 80px;
+      background: #c0c0c0;
+      border: 10px solid;
+      border-color: #ffffff #808080 #808080 #ffffff;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 70px;
+      cursor: pointer;
+      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.1s ease;
+    }
+    
+    .start-button:hover {
+      background: #d0d0d0;
+    }
+    
+    .start-button:active {
+      background: #808080;
+      border-color: #808080 #ffffff #ffffff #808080;
+      transform: translateY(5px);
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .mascot-icon {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+  <a href="/" class="start-button">
+    <img src="/mascot.png" alt="ValClippy" class="mascot-icon">
+    Start
+  </a>
+</body>
+</html>

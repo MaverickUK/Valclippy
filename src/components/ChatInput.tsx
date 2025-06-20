@@ -21,7 +21,7 @@ export function ChatInput({ onSubmit, disabled = false }: ChatInputProps) {
     
     recognitionRef.current.continuous = false;
     recognitionRef.current.interimResults = false;
-    recognitionRef.current.lang = 'en-US';
+    recognitionRef.current.lang = 'en-UK';
 
     recognitionRef.current.onstart = () => {
       setIsListening(true);

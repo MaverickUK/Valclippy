@@ -6,8 +6,11 @@ A conversational interface built with Next.js and OpenAI, designed to help users
 
 If this was real it would search real Valtech information repositories (e.g. Confluence, SharePoint, Suite Projects Pro) however for this prototype all the data it uses is held within `/src/app/api/chat/data.json`. This data is then supplied with a prompt held within `/src/app/api/chat/route.ts` which communicates to the LLM how to answer the users questions.
 
+<img src="public/screenshot.png" alt="ValClippy Chat Screenshot" style="width:80%;">
+
 ## Features
 - Conversational chat interface with chat bubbles
+- Voice input
 - OpenAI (ChatGPT) integration
 - Fictional internal data (people & projects) via JSON
 - Modular React components and hooks

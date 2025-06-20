@@ -2,6 +2,8 @@
 
 A conversational interface built with Next.js and OpenAI, designed to help users find information about internal projects and people. The app features a chat UI, LLM integration, and a fictional data source for demonstration.
 
+<img src="public/mascot.png" alt="ValClippy Mascot" style="width:20%;">
+
 If this was real it would search real Valtech information repositories (e.g. Confluence, SharePoint, Suite Projects Pro) however for this prototype all the data it uses is held within `/src/app/api/chat/data.json`. This data is then supplied with a prompt held within `/src/app/api/chat/route.ts` which communicates to the LLM how to answer the users questions.
 
 ## Features
